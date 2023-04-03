@@ -1,0 +1,54 @@
+<div class="container">
+    <form [formGroup]="cateForm">
+        <div class="row">
+
+            <!-- <pre> {{ allCate | json }} </pre> -->
+
+            <div class="col-md-6 offset-md-3 mt-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3> {{ checkUpdate ? "Upadte Category" : "Add New Category" }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="category">Category Name</label>
+                            <input id="category" [ngClass]="{'is-invalid' : cateForm.controls['name'].errors && check}" formControlName="name" type="text" class="form-control" />
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="{{ checkUpdate ? 'Update' : 'Add' }}" [ngClass]="checkUpdate ? 'btn-success' : 'btn-primary'" (click)="submit()" class="btn" />
+                        <button *ngIf="checkUpdate" class="btn btn-info ml-2" (click)="cancelUpdate()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-2 mt-4">
+
+            <table class="table table-secondary table-bordered text-center ">
+                <tr>
+                    <th>S. No.</th>
+                    <th>Category</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+                <tr *ngFor="let c of allCate; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <td> {{ c.name }}</td>
+                    <td><button data-toggle="modal" data-target="#delModal" class="btn btn-danger btn-sm" (click)="askDelete(c)">Delete</button>
+                    <td><button class="btn btn-success btn-sm" (click)="askUpdate(c)">Update</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+<app-delete [delItem]="delItem" (delEvent)="confDelete($event)"></app-delete>

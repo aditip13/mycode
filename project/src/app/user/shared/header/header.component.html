@@ -1,0 +1,52 @@
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a routerLink="index.html" class="logo">
+                        <img src="assets/images/logo.png">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a routerLink="/">Home</a></li>
+
+                        <ng-template [ngIf]="_ls.isloggedin()" [ngIfElse]="notloggedin">
+                            <li class="scroll-to-section"><a routerLink="/my-profile">My-Profile</a></li>
+                            <li class="scroll-to-section"><a style="cursor: pointer;" (click)="_ls.logout()">Logout</a>
+                            </li>
+                        </ng-template>
+
+                        <ng-template #notloggedin>
+                            <li class="scroll-to-section"><a routerLink="/login">Login</a></li>
+                            <li class="scroll-to-section"><a routerLink="/signup">Signup</a></li>
+                        </ng-template>
+
+                        <!-- <li class="scroll-to-section"><a routerLink="/category">Category</a></li> -->
+                        <li class="submenu">
+                            <a routerLink="javascript:;">Category</a>
+                            <ul>
+                                <li *ngFor="let c of allCate"><a routerLink="about.html"> {{ c.name }} </a></li>
+                            </ul>
+                        </li>
+                        <!-- <li class="submenu">
+                            <a routerLink="javascript:;">Features</a>
+                            <ul>
+                                <li><a routerLink="#">Features Page 1</a></li>
+                                <li><a routerLink="#">Features Page 2</a></li>
+                                <li><a routerLink="#">Features Page 3</a></li>
+                                <li><a rel="nofollow" routerLink="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
+                            </ul>
+                        </li> -->
+                        <li class="scroll-to-section"><a routerLink="#explore">Explore</a></li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

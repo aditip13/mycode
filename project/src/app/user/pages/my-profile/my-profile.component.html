@@ -1,0 +1,38 @@
+<div style="margin-top: 150px" class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+
+            <table *ngIf="profiledata" class="table table-dark">
+                <tr *ngFor="let c of profiledata">
+                    <td>Full name</td>
+                    <td>{{ c.fullname }}</td>
+                </tr>
+                <tr *ngFor="let c of profiledata">
+                    <td>Email</td>
+                    <td>{{ c.email }}</td>
+                </tr>
+                <tr *ngFor="let c of profiledata">
+                    <td>Password</td>
+                    <td>{{ c.password }}</td>
+                </tr>
+                <tr *ngFor="let c of profiledata">
+                    <td>Contact</td>
+                    <td>{{ c.contact }}</td>
+                </tr>
+                <tr *ngFor="let c of profiledata">
+                    <td>Gender</td>
+                    <td>{{ c.gender }}</td>
+                </tr>
+                <tr *ngFor="let c of profiledata">
+                    <td>Address</td>
+                    <td>{{ c.address }}</td>
+                </tr>
+                <tr *ngFor="let c of profiledata">
+                    <td>City</td>
+                    <td>{{ c.city }}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
