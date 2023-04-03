@@ -8,6 +8,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { UserComponent } from './user.component';
 import { BackdoorGuard } from './gaurds/backdoor/backdoor.guard';
 import { AntiBackdoorGuard } from './gaurds/anti-backdoor/anti-backdoor.guard';
+import { AddProductComponent } from './pages/add-product/add-product.component';
+import { ProductComponent } from './pages/product/product.component';
 
 const routes: Routes = [
 
@@ -36,6 +38,21 @@ const routes: Routes = [
       {
         path: "my-profile",
         component: MyProfileComponent,
+        canActivate: [BackdoorGuard]
+      },
+      {
+        path: "add-product",
+        component: AddProductComponent,
+        canActivate: [BackdoorGuard]
+      },
+      {
+        path: "product-list",
+        component: ProductComponent,
+        canActivate: [BackdoorGuard]
+      },
+      {
+        path: "product/edit/:id",
+        component: AddProductComponent,
         canActivate: [BackdoorGuard]
       }
     ]

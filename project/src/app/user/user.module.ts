@@ -11,6 +11,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+import { DeleteComponent } from './shared/delete/delete.component';
+import { ProductComponent } from './pages/product/product.component';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
     HeaderComponent,
     FooterComponent,
     CategoryComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    DeleteComponent,
+    ProductComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,
